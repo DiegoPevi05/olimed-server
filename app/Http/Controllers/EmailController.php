@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SFMailable;
+use App\Mail\SFMailableEN;
 use App\Mail\SFMailableReply;
 
 class EmailController extends Controller
@@ -22,8 +23,9 @@ class EmailController extends Controller
         $email = $request->input('email');
         $content = $request->input('message');
         // Check for the "language" parameter
+        $language = $request->has('language') && $request->input('language') === 'es' ? 'es' : 'en';
 
-        $mailable = new SFMailable($name);
+        $mailable = $language === 'es' ? new SFMailable($name) : new SFMailableEN($name);
         Mail::to($email)->send($mailable);
 
         $mailableReply = new SFMailableReply($name, $email, $content);
