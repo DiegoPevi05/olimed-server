@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.olimed.com.pe" target="_blank">
-    <img src="https://github.com/DiegoPevi05/olimed-front/tree/main/src/assets/images/Logo.png" width="200">
+    <img src="https://github.com/DiegoPevi05/olimed-server/blob/main/public/Logo.png" width="200">
   </a>
 </p>
 
